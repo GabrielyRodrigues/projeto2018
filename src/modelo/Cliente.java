@@ -6,11 +6,11 @@ import java.util.Date;
 public class Cliente {
     
     private int id;
-    private String nome;
-    private Date dataNascimento;
+    private String Nome;
+    private Date DataNascimento;
     private String cpf;
     private String telefone ;
-    private String email;
+    private String Email;
     private String endereço;
 
     public int getId() {
@@ -22,19 +22,19 @@ public class Cliente {
     }
 
     public String getNome() {
-        return nome;
+        return Nome;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.Nome = nome;
     }
 
     public Date getDataNascimento() {
-        return dataNascimento;
+        return DataNascimento;
     }
 
     public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+        this.DataNascimento = dataNascimento;
     }
 
     public String getCpf() {
@@ -54,11 +54,11 @@ public class Cliente {
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.Email = email;
     }
 
     public String getEndereço() {
