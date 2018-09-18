@@ -2,7 +2,7 @@
 package modelo;
 
 
-public class produto {
+public class Produto {
     
     private int id;
     private String nome;

@@ -3,7 +3,7 @@ package modelo;
 
 import java.util.Date;
 
-public class venda {
+public class Venda {
     
     private int id;
     private Date dataVenda;

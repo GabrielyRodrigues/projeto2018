@@ -1,7 +1,7 @@
 
 package modelo;
 
-public class fornecedor {
+public class Fornecedor {
     
     private int id;
     private String nome;

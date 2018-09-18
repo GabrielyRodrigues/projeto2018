@@ -40,7 +40,7 @@ public class Cliente extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtEnd = new javax.swing.JTextField();
-        btnSlavr = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -58,10 +58,10 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel7.setText("Endereço:");
 
-        btnSlavr.setText("Salvar");
-        btnSlavr.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSlavrActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
@@ -85,7 +85,7 @@ public class Cliente extends javax.swing.JFrame {
                         .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE))
                     .addComponent(jLabel7)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnSlavr)
+                        .addComponent(btnSalvar)
                         .addComponent(txtEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
@@ -117,14 +117,14 @@ public class Cliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnSlavr, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSlavrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSlavrActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         String nome = txtNome.getText();
          String dataNascimento = txtNasc.getText();
            String cpf = txtCpf.getText();
@@ -167,7 +167,7 @@ public class Cliente extends javax.swing.JFrame {
             }
 
         }
-    }//GEN-LAST:event_btnSlavrActionPerformed
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +205,7 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSlavr;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -47,7 +47,7 @@
                   </Group>
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="btnSlavr" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
                       <Component id="txtEnd" min="-2" pref="310" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -83,7 +83,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="txtEnd" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="18" max="32767" attributes="0"/>
-              <Component id="btnSlavr" min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="btnSalvar" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -132,12 +132,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtEnd">
     </Component>
-    <Component class="javax.swing.JButton" name="btnSlavr">
+    <Component class="javax.swing.JButton" name="btnSalvar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSlavrActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

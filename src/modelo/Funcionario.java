@@ -2,10 +2,11 @@
 package modelo;
 
 
-public class Usuario {
+public class Funcionario {
     
     private int id;
     private String nome;
+    private String cargo;
     private String login;
     private String senha;
 
@@ -25,6 +26,14 @@ public class Usuario {
         this.nome = nome;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -40,6 +49,8 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+   
     
     
 }
