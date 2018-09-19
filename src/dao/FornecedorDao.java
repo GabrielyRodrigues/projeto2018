@@ -6,13 +6,15 @@ import banco.Conexao;
 import java.sql.Connection;
 
 
+
 public class FornecedorDao {
     
-     public Fornecedor autenticacao (String nome,String cnpj){
+     public Fornecedor salvar (Fornecedor fornecedor){
     
-        Fornecedor fornecedor = null;
+       
         
         try (Connection con = Conexao.get()){
+            
             
             
             
@@ -23,3 +25,4 @@ public class FornecedorDao {
         return fornecedor;
         }
 }
+

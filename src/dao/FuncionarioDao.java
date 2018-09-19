@@ -1,5 +1,6 @@
 
 package dao;
+import Telas.Fornecedor;
 import banco.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,10 +10,9 @@ import modelo.Funcionario;
 
 public class FuncionarioDao {
     
-    public Funcionario autenticacao (String login,String senha){
+     public Fornecedor autenticacao (String login,String senha ){
     
-        Funcionario funcionario = null;
-        
+      
         try (Connection con = Conexao.get()){
             String sql = "SELECT * FROM usuario" +"WHERE login=? and senha=?";
             
@@ -24,14 +24,14 @@ public class FuncionarioDao {
             
             if (result.first()){
                 
-            funcionario = new Funcionario ();
+            Funcionario  funcionario = new  Funcionario ();
             
             funcionario.setId(result.getInt("id"));
             funcionario.setNome(result.getString("nome"));
             funcionario.setCargo(result.getString("cargo"));
             funcionario.setLogin(login);
             funcionario.setSenha(senha);
-            return funcionario;
+           
             
             }
             
@@ -40,7 +40,7 @@ public class FuncionarioDao {
         e.printStackTrace();
         
     }
-        return funcionario;
+     return null;
     }     
     
     

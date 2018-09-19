@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dao;
 
 import banco.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.Produto;
 
@@ -30,7 +27,24 @@ public class ProdutoDao {
             prep.setDouble(6,produto.getQuantidadeEstoque());
             prep.setString(7,produto.getUnidade());
             
-          
+          ResultSet result = prep.executeQuery();
+            
+            if (result.first()){
+                
+             produto = new  Produto ();
+            
+            produto.setId(result.getInt("id"));
+            produto.setNome(result.getString("nome"));
+            produto.setDescricao(result.getString("descricao"));
+            produto.setPrecoCusto(result.getDouble("precoCusto"));
+            produto.setPorcentagemLucro(result.getDouble("porcentagemLucro"));
+            produto.setPrecoVenda(result.getDouble("precoVenda"));
+            produto.setQuantidadeEstoque(result.getDouble("quantidadeEstoque"));
+            produto.setUnidade(result.getString("unidade"));
+            
+            }
+            
+        
 
             return true;
 

@@ -10,6 +10,7 @@ public class ClienteDao {
 
     public boolean salvar(Cliente cliente) {
 
+        
         try (Connection con = Conexao.get();) {
 
             String sql = "insert into cliente (nome,datanascimento,email) values(?,?,?)";

@@ -6,16 +6,8 @@ import java.util.Date;
 public class Venda {
     
     private int id;
-    private Date dataVenda;
-
-    public Date getDataVenda() {
-        return dataVenda;
-    }
-
-    public void setDataVenda(Date dataVenda) {
-        this.dataVenda = dataVenda;
-    }
-    private double precoTotal;
+    private Date    DataVenda;
+    private double PrecoTotal;
     private double desconto;
     private double precoTotalComDesconto;
 
@@ -27,12 +19,20 @@ public class Venda {
         this.id = id;
     }
 
+    public Date getDataVenda() {
+        return DataVenda;
+    }
+
+    public void setDataVenda(Date dataVenda) {
+        this.DataVenda = dataVenda;
+    }
+
     public double getPrecoTotal() {
-        return precoTotal;
+        return PrecoTotal;
     }
 
     public void setPrecoTotal(double precoTotal) {
-        this.precoTotal = precoTotal;
+        this.PrecoTotal = precoTotal;
     }
 
     public double getDesconto() {
@@ -51,7 +51,7 @@ public class Venda {
         this.precoTotalComDesconto = precoTotalComDesconto;
     }
     
-    
-    
-    
-}
+
+   
+    }
+ 
