@@ -1,7 +1,7 @@
 
 package dao;
 
-import Telas.Venda;
+import Telas.TelaVenda;
 import banco.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,10 +19,10 @@ public class VendaDao {
 
             String sql = "SELECT * FORM venda"+" WHERE (dataVenda,precoTotal,desconto,precoTotalComDesconto) values(?,?,?,?)";
             PreparedStatement prep = con.prepareStatement(sql);
-            prep.setDate(1, venda.getDataVenda);
+          
              prep.setDouble(3,venda.getPrecoTotal());
             prep.setDouble(4,venda.getDesconto());
-            prep.setDouble(5,venda.getPrecoComDesconto());
+          
            
             
           ResultSet result = prep.executeQuery();
@@ -32,10 +32,7 @@ public class VendaDao {
             venda = new Venda ();
             
             venda.setId(result.getInt("id"));
-            venda.setData(result.getString("dataVenda"));
-            venda.setprecoTotal(result.getDouble("precoTotal"));
-            venda.setDesconto(result.getDouble("desconto"));
-            venda.setprecoComDesconto(result.getDouble("precoComDesconto"));
+            
            
             
             }

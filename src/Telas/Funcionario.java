@@ -1,6 +1,8 @@
 
 package Telas;
 
+import dao.FuncionarioDao;
+
 
 public class Funcionario extends javax.swing.JFrame {
 
@@ -92,6 +94,25 @@ public class Funcionario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
    
+            String login = txtLogin.getText();
+            String senha = txtSenha.getText();
+            String cargo = txtCargo.getText();
+            
+            
+            FuncionarioDao fun = new FuncionarioDao();
+            
+            if (fun== null){
+                            
+            
+            
+            
+            
+            
+            
+            }
+            
+            
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -141,5 +162,6 @@ public class Funcionario extends javax.swing.JFrame {
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 
+    
 
 }

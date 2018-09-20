@@ -1,6 +1,8 @@
 
 package Telas;
 
+import dao.ClienteDao;
+
 
 public class Cliente extends javax.swing.JFrame {
 
@@ -132,19 +134,18 @@ public class Cliente extends javax.swing.JFrame {
             try{
 
                 Cliente c = new Cliente();
-                //c.setNome(nome);
-                //c.setIdade(Integer.parseInt(idade));
-               // c.setEmail(email);
+            
+               
 
-                /*PessoaDao pd = new PessoaDao();
-                if(pd.salvar(p)){
+                ClienteDao pd = new ClienteDao();
+                if(pd.salvar(c)){
                     System.out.println("Registro inserido com sucesso!");
                 }else{
                     System.err.println("Erro de registro");
                 }
 
                 clear();
-                */
+                
 
             }catch(NumberFormatException nfe){
 
