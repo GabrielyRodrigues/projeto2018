@@ -1,6 +1,6 @@
 
 package dao;
-import Telas.Fornecedor;
+import Telas.TelaFornecedor;
 import banco.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import modelo.Funcionario;
 
 public class FuncionarioDao {
     
-     public Fornecedor autenticacao (String login,String senha ){
+     public TelaFornecedor autenticacao (String login,String senha ){
     
       
         try (Connection con = Conexao.get()){

@@ -102,17 +102,17 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActionPerformed
-       Cliente tela = new Cliente();
+       TelaCliente tela = new TelaCliente();
        setVisible(true);
     }//GEN-LAST:event_ClienteActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Fornecedor tela = new Fornecedor ();
+        TelaFornecedor tela = new TelaFornecedor ();
         setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Funcionario tela = new Funcionario ();
+        TelaFuncionario tela = new TelaFuncionario ();
         setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

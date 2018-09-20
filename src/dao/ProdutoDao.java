@@ -6,45 +6,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import modelo.Produto;
 
 
+
 public class ProdutoDao {
-    
-    
     
     public boolean salvar(Produto produto) {
 
         try (Connection con = Conexao.get();) {
 
-            String sql = "SELECT * FORM produto"+" WHERE (nome,descricao,precoCusto,porcentagemLucro,precoVenda,quantidadeEstoque,unidade) values(?,?,?,?,?,?,?)";
+            String sql = "insert into produto(nome,quantidade_estoque,preco) values(?,?,?)";
             PreparedStatement prep = con.prepareStatement(sql);
             prep.setString(1, produto.getNome());
-            prep.setString(2, produto.getDescricao());
-            prep.setDouble(3,produto.getPrecoCusto());
-            prep.setDouble(4,produto.getPorcentagemLucro());
-            prep.setDouble(5,produto.getPrecoVenda());
-            prep.setDouble(6,produto.getQuantidadeEstoque());
-            prep.setString(7,produto.getUnidade());
             
-          ResultSet result = prep.executeQuery();
-            
-            if (result.first()){
-                
-             produto = new  Produto ();
-            
-            produto.setId(result.getInt("id"));
-            produto.setNome(result.getString("nome"));
-            produto.setDescricao(result.getString("descricao"));
-            produto.setPrecoCusto(result.getDouble("precoCusto"));
-            produto.setPorcentagemLucro(result.getDouble("porcentagemLucro"));
-            produto.setPrecoVenda(result.getDouble("precoVenda"));
-            produto.setQuantidadeEstoque(result.getDouble("quantidadeEstoque"));
-            produto.setUnidade(result.getString("unidade"));
-            
-            }
-            
-        
+            prep.execute();
 
             return true;
 
@@ -54,6 +32,81 @@ public class ProdutoDao {
         }
 
     }
+    
+    public boolean alterar(Produto produto) {
+
+        try (Connection con = Conexao.get();) {
+
+            String sql = "update produto set "
+                    + "nome=?,"
+                    + "quantidade_estoque=?,"
+                    + "preco=? "
+                    + "where id =" + produto.getId();
+
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.setString(1, produto.getNome());
+          
+
+            prep.execute();
+
+            return true;
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        }
+
+    }
+    
+    public boolean excluir(int id) {
+
+        try (Connection con = Conexao.get();) {
+
+            String sql = "delete from produto where id =" + id;
+
+            PreparedStatement prep = con.prepareStatement(sql);
+            prep.execute();
+
+            return true;
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        }
+
+    }
+    
+    public List<Produto> buscar() {
+
+        List<Produto> list = new ArrayList<>();
+        
+        try (Connection con = Conexao.get();) {
+
+            String sql = "select * from produto";
+
+            PreparedStatement prep = con.prepareStatement(sql);
+            ResultSet result = prep.executeQuery();
+
+            while (result.next()) {
+
+                Produto p = new Produto();
+                p.setId(result.getInt("id"));
+                p.setNome(result.getString("nome"));
+                p.setQuantidadeEstoque(result.getInt("quantidade_estoque"));
+           
+
+                list.add(p);
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+        
+        return list;
+        
+    }
+    
+    
 }
     
     
