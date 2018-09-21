@@ -68,6 +68,10 @@ public class Cliente {
     public void setEndereço(String endereço) {
         this.endereço = endereço;
     }
+
+    public void setDataNascimento(String dataNascimento) {
+        
+    }
     
     
     

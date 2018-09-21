@@ -2,7 +2,7 @@
 package modelo;
 
 
-public class Itens_venda {
+public class ItensVenda {
     
     private int id;
     private double quantidade;

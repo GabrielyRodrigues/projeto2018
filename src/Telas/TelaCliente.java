@@ -4,7 +4,7 @@ package Telas;
 import dao.ClienteDao;
 
 
-public class TelaCliente extends javax.swing.JFrame {
+public class TelaCliente extends javax.swing.JInternalFrame {
 
     public TelaCliente() {
         initComponents();
@@ -15,30 +15,24 @@ public class TelaCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtNasc = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         txtCpf = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         txtEnd = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtNasc = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
-        jLabel3.setText("jLabel3");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Nome:");
-
-        jLabel2.setText("Data de Nascimento:");
-
-        jLabel4.setText("CPF:");
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setTitle("Cadastro Clientes");
 
         jLabel5.setText("Telefone:");
 
@@ -46,12 +40,18 @@ public class TelaCliente extends javax.swing.JFrame {
 
         jLabel7.setText("Endereço:");
 
+        jLabel1.setText("Nome:");
+
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Data de Nascimento:");
+
+        jLabel4.setText("CPF:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,7 +75,7 @@ public class TelaCliente extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnSalvar)
                         .addComponent(txtEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +104,7 @@ public class TelaCliente extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(txtEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -114,18 +114,18 @@ public class TelaCliente extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         String nome = txtNome.getText();
-         String dataNascimento = txtNasc.getText();
-           String cpf = txtCpf.getText();
-             String telefone = txtTelefone.getText();
-           String email = txtEmail.getText();
-             String endereco = txtEnd.getText();
+        String dataNascimento = txtNasc.getText();
+        String cpf = txtCpf.getText();
+        String telefone = txtTelefone.getText();
+        String email = txtEmail.getText();
+        String endereco = txtEnd.getText();
 
         if(nome.isEmpty() ||
             dataNascimento.isEmpty() ||
-                cpf.isEmpty()||
-                telefone.isEmpty()||
-                email.isEmpty()||
-                endereco.isEmpty()){
+            cpf.isEmpty()||
+            telefone.isEmpty()||
+            email.isEmpty()||
+            endereco.isEmpty()){
 
             System.out.println("Preencha todos os valores");
 
@@ -134,8 +134,12 @@ public class TelaCliente extends javax.swing.JFrame {
             try{
 
                 TelaCliente c = new TelaCliente();
-            
-               
+                c.setNome("Nome");
+                c.setDataNascimento(dataNascimento);
+                c.setCpf(cpf);
+                c.setTelefone(telefone);
+                c.setEmail(email);
+                c.setEndereco(endereco);
 
                 ClienteDao pd = new ClienteDao();
                 if(pd.salvar(c)){
@@ -145,7 +149,6 @@ public class TelaCliente extends javax.swing.JFrame {
                 }
 
                 clear();
-                
 
             }catch(NumberFormatException nfe){
 
@@ -156,47 +159,11 @@ public class TelaCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCliente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -218,4 +185,29 @@ private void clear(){
         txtEnd.setText("");
         
     }
+
+    private void setNome(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setDataNascimento(String dataNascimento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setCpf(String cpf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setTelefone(String telefone) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setEmail(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setEndereco(String endereco) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

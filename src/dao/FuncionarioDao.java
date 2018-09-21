@@ -1,6 +1,6 @@
 
 package dao;
-import Telas.TelaFornecedor;
+import Telas.Fornecedor;
 import banco.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,15 +10,16 @@ import modelo.Funcionario;
 
 public class FuncionarioDao {
     
-     public TelaFornecedor autenticacao (String login,String senha ){
+     public Fornecedor autenticacao (String login,String senha,String cargo ){
     
       
         try (Connection con = Conexao.get()){
-            String sql = "SELECT * FROM usuario" +"WHERE login=? and senha=?";
+            String sql = "SELECT * FROM usuario" +"WHERE login=? and senha=? and cargo=?";
             
             PreparedStatement prep = con.prepareStatement(sql);
             prep.setString(1,login);
             prep.setString(2,senha);
+            prep.setString(3, cargo);
             
             ResultSet result = prep.executeQuery();
             

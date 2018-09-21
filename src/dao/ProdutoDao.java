@@ -1,6 +1,7 @@
 
 package dao;
 
+import Telas.TelaProduto;
 import banco.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,9 +19,14 @@ public class ProdutoDao {
 
         try (Connection con = Conexao.get();) {
 
-            String sql = "insert into produto(nome,quantidade_estoque,preco) values(?,?,?)";
+            String sql = "insert into produto(nome,descricao,precoCusto,PorcentagemLucro,precoVenda,quantidadeEstoque,unidade) values(?,?,?)";
             PreparedStatement prep = con.prepareStatement(sql);
             prep.setString(1, produto.getNome());
+            prep.setString(2,produto.getDescricao());
+            prep.setDouble(3,produto.getPrecoCusto());
+            prep.setDouble(4,produto.getPorcentagemLucro());
+            prep.setDouble(5,produto.getQuantidadeEstoque());
+            prep.setString (4,produto.getUnidade());
             
             prep.execute();
 
@@ -104,6 +110,14 @@ public class ProdutoDao {
         
         return list;
         
+    }
+
+    public boolean salvar(TelaProduto p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean salvar(Telas.Produto prod) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

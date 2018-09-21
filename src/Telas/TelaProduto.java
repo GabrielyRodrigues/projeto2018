@@ -2,11 +2,12 @@
 package Telas;
 
 import dao.ProdutoDao;
+import modelo.Produto;
 
+public class TelaProduto extends javax.swing.JInternalFrame {
 
-public class Produto extends javax.swing.JFrame {
-
-    public Produto() {
+ 
+    public TelaProduto() {
         initComponents();
     }
 
@@ -15,35 +16,35 @@ public class Produto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtDesc = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtPreco = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtPor = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtVenda = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         txtQuantidade = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
         txtUnidade = new javax.swing.JTextField();
+        txtDesc = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtPreco = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Nome:");
-
-        jLabel2.setText("Descrição:");
-
-        jLabel3.setText("Preco Custo:");
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         jLabel4.setText("Porcentagem:");
 
         jLabel5.setText("Preco Venda:");
 
         jLabel6.setText("Quantidade Estoque:");
+
+        jLabel1.setText("Nome:");
+
+        jLabel2.setText("Descrição:");
 
         jLabel7.setText("Unidade:");
 
@@ -53,6 +54,8 @@ public class Produto extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("Preco Custo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,7 +80,7 @@ public class Produto extends javax.swing.JFrame {
                         .addComponent(txtQuantidade)
                         .addComponent(jLabel7)
                         .addComponent(txtUnidade, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +113,7 @@ public class Produto extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
                 .addContainerGap())
         );
@@ -119,88 +122,51 @@ public class Produto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-         String nome = txtNome.getText();
-         String descricao = txtDesc.getText();
-           String precoCusto = txtPreco.getText();
-           String porcentagem = txtPor.getText();
-             String precoVenda = txtPreco.getText();
-              String quantidade = txtQuantidade.getText();
-                String Unidade = txtUnidade.getText();
        
+        String nome = txtNome.getText();
+        String descricao = txtDesc.getText();
+        String precoCusto = txtPreco.getText();
+        String porcentagem = txtPor.getText();
+        String precoVenda = txtPreco.getText();
+        String quantidade = txtQuantidade.getText();
+        String Unidade = txtUnidade.getText();
 
         if(nome.isEmpty() ||
             descricao.isEmpty() ||
-              precoCusto.isEmpty()||
-               porcentagem.isEmpty()||
-                quantidade.isEmpty()||
-                Unidade.isEmpty()){
+            precoCusto.isEmpty()||
+            porcentagem.isEmpty()||
+            quantidade.isEmpty()||
+            Unidade.isEmpty()){
 
-             }else{
-            
+        
+
+            System.out.println("Preencha todos os valores");
+
+        }else{
+
             try{
-                
-                double q = Double.parseDouble(quantidade);
-                double p = Double.parseDouble(precoCusto);
-                double por = Double.parseDouble(porcentagem);
-                double precoV = Double.parseDouble(precoVenda);
+
+             TelaProduto p = new TelaProduto();
              
-            
-                
-                Produto prod = new Produto();
-                
+             
 
                 ProdutoDao pd = new ProdutoDao();
-                if(pd.salvar(prod)){
-                    System.out.println("Produto salvo com sucesso!");
-                    clear();
+                if(pd.salvar(p)){
+                    System.out.println("Registro inserido com sucesso!");
                 }else{
-                    System.out.println("Erro ao salvar o produto");
+                    System.err.println("Erro de registro");
                 }
-                
-            }catch(Exception e){
-                
-                System.err.println("Erro de conversão de valores");
-                
-            }
+
+                clear();
+
+            }catch(NumberFormatException nfe){
+
+                System.out.println("Erro de conversao de valores");
+
+       
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-  
-         
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Produto().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
@@ -219,13 +185,10 @@ public class Produto extends javax.swing.JFrame {
     private javax.swing.JTextField txtUnidade;
     private javax.swing.JTextField txtVenda;
     // End of variables declaration//GEN-END:variables
-  private void clear() {
-    
-        txtNome.setText("");
-        txtPreco.setText("");
-        txtQuantidade.setText("");
-    
-    }
+ private void clear(){
+    txtNome.setText("");
+ }
 
-    
+  
+
 }
